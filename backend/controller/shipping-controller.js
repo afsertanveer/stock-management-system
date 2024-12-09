@@ -57,7 +57,7 @@ function getDataAfterHeader(filePath, headerName) {
   
       // Extract the headers and data
       const headers = allRows[headerRowIndex];
-      const dataRows = allRows.slice(headerRowIndex + 1);
+      const dataRows = allRows.slice(headerRowIndex);
   
       // Map data to JSON objects based on headers
       const jsonData = dataRows.map((row) => {
