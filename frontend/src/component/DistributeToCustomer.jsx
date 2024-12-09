@@ -19,7 +19,7 @@ const DistributeToCustomer = () => {
   useEffect(() => {
     setIsLoading(true); // Start loading when fetching data
     axios
-      .get("http://localhost:5011/api/shipping/jobIds") // Replace with correct endpoint
+      .get(import.meta.env.VITE_API_URL + "api/shipping/jobIds") // Replace with correct endpoint
       .then(({ data }) => {
         setJobIds(data);
         setIsLoading(false); // Stop loading once data is fetched
@@ -36,7 +36,7 @@ const DistributeToCustomer = () => {
     if (selectedJobId) {
       setIsLoading(true);
       axios
-        .get("http://localhost:5011/api/shipping/customers", {
+        .get(import.meta.env.VITE_API_URL + "api/shipping/customers", {
           params: { jobId: selectedJobId },
         })
         .then(({ data }) => {
@@ -56,7 +56,7 @@ const DistributeToCustomer = () => {
     if (selectedCustomer) {
       setIsLoading(true);
       axios
-        .get("http://localhost:5011/api/shipping/cartoons", {
+        .get(import.meta.env.VITE_API_URL + "api/shipping/cartoons", {
           params: { customer: selectedCustomer },
         })
         .then(({ data }) => {
@@ -84,7 +84,7 @@ const DistributeToCustomer = () => {
     };
 
     axios
-      .put("http://localhost:5011/api/shipping/updatecartoon", payload)
+      .put(import.meta.env.VITE_API_URL + "api/shipping/updatecartoon", payload)
       .then(() => {
         alert("Data distributed successfully!");
         setIsLoading(false); // Stop loading after successful submission

@@ -25,10 +25,12 @@ const ShowCustomer = () => {
   };
   useEffect(() => {
     setIsLoading(true);
-    axios.get("http://localhost:5011/api/customer/show").then(({ data }) => {
-      setCustomers(data);
-      setIsLoading(false);
-    });
+    axios
+      .get(import.meta.env.VITE_API_URL + "api/customer/show")
+      .then(({ data }) => {
+        setCustomers(data);
+        setIsLoading(false);
+      });
   }, []);
 
   return (

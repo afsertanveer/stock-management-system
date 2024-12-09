@@ -22,7 +22,7 @@ const AddCustomer = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5011/api/customer/addCustomer",
+        import.meta.env.VITE_API_URL + "api/customer/addCustomer",
         formData
       );
       console.log(response.data);

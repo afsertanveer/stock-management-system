@@ -25,7 +25,7 @@ const ShowPackages = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("http://localhost:5011/api/shipping/jobIds")
+      .get(import.meta.env.VITE_API_URL + "api/shipping/jobIds")
       .then(({ data }) => {
         setJobIds(data);
         setIsLoading(false);
@@ -40,7 +40,7 @@ const ShowPackages = () => {
     if (selectedJobId) {
       setIsLoading(true);
       axios
-        .get("http://localhost:5011/api/shipping/viewShipment", {
+        .get(import.meta.env.VITE_API_URL + "api/shipping/viewShipment", {
           params: { jobId: selectedJobId },
         })
         .then(({ data }) => {
